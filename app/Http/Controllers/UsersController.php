@@ -9,18 +9,8 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users= [
-            '0'=>[
-                'first_name' => 'Ellis',
-                'last_name' => 'G',
-                'location' => 'America'
-            ],
-            '1'=>[
-                'first_name'=>'Kim',
-                'last_name'=>'Jung Il',
-                'location'=>'North Korea'
-            ]
-        ];
+
+        $users = User::paginate(20);
         return view('admin.users.index', compact('users'));
     }
     public function create()
