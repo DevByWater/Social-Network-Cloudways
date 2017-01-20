@@ -15,12 +15,17 @@ Route::get('/', 'PagesController@index');
 
 Route::get('blade', 'PagesController@blade');
 
-Route::get('profile', 'PagesController@profile');
+Route::group(['middleware' => 'authenticated'], function (){
+    Route::get('profile', 'PagesController@profile');
+    Route::get('users', 'UsersController@index');
+});
+
 Route::get('settings', 'PagesController@settings');
 
-Route::get('users', ['uses'=>'UsersController@index']);
 Route::get('users/create', ['uses'=>'UsersController@create']);
+
 Route::post('users', ['uses'=>'UsersController@store']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
