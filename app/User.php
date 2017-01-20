@@ -37,7 +37,7 @@ class User extends Authenticatable
     }
     public function getNameAttribute($value)
     {
-        return "User: " . $value;
+        return $value;
     }
     public function getEmailAttribute($value)
     {
