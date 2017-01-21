@@ -20,3 +20,7 @@ Route::post('users', ['uses'=>'UsersController@store']);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
